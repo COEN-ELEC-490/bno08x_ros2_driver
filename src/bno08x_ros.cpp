@@ -15,14 +15,14 @@ BNO08xROS::BNO08xROS()
     this->init_sensor();
 
     if (publish_imu_) {
-        this->imu_publisher_ = this->create_publisher<sensor_msgs::msg::Imu>("/imu", 10);
+        this->imu_publisher_ = this->create_publisher<sensor_msgs::msg::Imu>("imu/data", 10);
         RCLCPP_INFO(this->get_logger(), "IMU Publisher created");
         RCLCPP_INFO(this->get_logger(), "IMU Rate: %d", imu_rate_);
     }
 
     if (publish_magnetic_field_) {
         mag_publisher_ = this->create_publisher<sensor_msgs::msg::MagneticField>(
-                                                                        "/magnetic_field", 10);
+                                                                        "imu/magnetic_field", 10);
         RCLCPP_INFO(this->get_logger(), "Magnetic Field Publisher created");
         RCLCPP_INFO(this->get_logger(), "Magnetic Field Rate: %d", magnetic_field_rate_);
     }

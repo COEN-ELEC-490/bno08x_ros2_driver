@@ -140,14 +140,14 @@ void BNO08xROS::init_comms() {
 void BNO08xROS::init_parameters() {
     this->declare_parameter<std::string>("frame_id", "bno085");
 
-    this->declare_parameter<bool>("publish.magnetic_field.enabled", true);
+    this->declare_parameter<bool>("publish.magnetic_field.enabled", false);
     this->declare_parameter<int>("publish.magnetic_field.rate", 100);
     this->declare_parameter<bool>("publish.imu.enabled", true);
     this->declare_parameter<int>("publish.imu.rate", 100);
 
     this->declare_parameter<bool>("i2c.enabled", true);
-    this->declare_parameter<std::string>("i2c.bus", "/dev/i2c-7");
-    this->declare_parameter<std::string>("i2c.address", "0x4A");
+    this->declare_parameter<std::string>("i2c.bus", "/dev/i2c-1");
+    this->declare_parameter<std::string>("i2c.address", "0x4b");
     this->declare_parameter<bool>("uart.enabled", false);
     this->declare_parameter<std::string>("uart.device", "/dev/ttyACM0");
     this->declare_parameter<bool>("spi.enabled", false);
